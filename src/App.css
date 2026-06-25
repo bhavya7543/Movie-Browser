@@ -142,9 +142,6 @@ body {
   margin: 0;
 }
 
-/* * CRITICAL FIX: Removed duplicated .movie-count selector block to keep code clean.
- */
-
 .status-message {
   color: #334155;
   margin: 10px 0 20px;
@@ -331,9 +328,6 @@ body {
   background-color: #333;
 }
 
-/* * ENHANCEMENT: Converted category-list parent into a flex layout 
- * so its child list items line up professionally.
- */
 .category-list {
   display: flex;
   flex-wrap: wrap;
@@ -354,8 +348,6 @@ body {
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-/* * ENHANCEMENT: Made category-list tags scale gracefully when hovered.
- */
 .category-list li:hover {
   background-color: #cbd5e1;
   transform: translateY(-1px);
@@ -388,73 +380,114 @@ body {
   margin: 0 0 18px;
 }
 
+@media (max-width:768px){
 
-/* ==========================================================================
-   NEW ADDITION: PROFESSIONAL MOBILE RESPONSIVE MEDIA QUERIES
-   ========================================================================== */
-
-/* Tablet & Smaller Devices (Max Width: 768px) */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 15px 20px;
-    flex-wrap: wrap; /* Allows elements to wrap dynamically without breaking layout */
-    gap: 15px;
+  .navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:nowrap;
+    gap:10px;
+    padding:12px 15px;
   }
 
-  .search-box {
-    order: 3; /* Shifts search bar to its own row on mobile for better accessibility */
-    width: 100%;
-    max-width: none;
+  .navbar h1{
+    font-size:20px;
+    white-space:nowrap;
+    flex-shrink:0;
   }
 
-  .search-box input {
-    max-width: 100%; /* Expands search to look seamless on touch screens */
+  .search-box{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    min-width:120px;
+    max-width:220px;
   }
 
-  .movie-page {
-    padding: 20px 20px 60px; /* Streamlines container breathing room on small screens */
+  .search-box input{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    padding:8px 10px;
+    font-size:13px;
   }
 
-  .movies-grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Optimizes card fitment on smaller layouts */
-    gap: 16px;
+  .navbar ul{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    list-style:none;
+    flex-wrap:nowrap;
+    flex-shrink:0;
   }
+
+  .navbar ul li{
+    padding:0;
+    white-space:nowrap;
+    font-size:13px;
+  }
+
+  .logout-btn{
+    padding:8px 12px;
+    font-size:13px;
+  }
+
+  .movie-page{
+    padding:20px 15px;
+  }
+
+  .movies-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+  }
+
 }
 
-/* Small Mobile Screen Adjustments (Max Width: 480px) */
-@media (max-width: 480px) {
-  .navbar h1 {
-    font-size: 18px; /* Slightly scaled down text sizes for clean margins */
+@media (max-width:480px){
+
+  .navbar{
+    gap:8px;
+    padding:10px;
   }
 
-  .navbar ul {
-    gap: 12px;
+  .navbar h1{
+    font-size:18px;
   }
 
-  .navbar ul li {
-    padding: 6px 8px;
-    font-size: 13px;
+  .search-box{
+    max-width:140px;
   }
 
-  .logout-btn {
-    padding: 6px 12px;
-    font-size: 13px;
+  .search-box input{
+    padding:7px 8px;
+    font-size:12px;
   }
 
-  .movie-list-header h2 {
-    font-size: 24px;
+  .navbar ul{
+    gap:8px;
   }
 
-  .movies-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* Ensures dual-column style looks premium on tight panels */
-    gap: 12px;
+  .navbar ul li{
+    font-size:12px;
   }
-  
-  .movie-info {
-    padding: 10px;
+
+  .logout-btn{
+    padding:6px 10px;
+    font-size:12px;
   }
-  
-  .movie-info h3 {
-    font-size: 13px;
+
+  .movies-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
   }
+
+  .movie-info{
+    padding:10px;
+  }
+
+  .movie-info h3{
+    font-size:13px;
+  }
+
 }
